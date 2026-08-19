@@ -9,7 +9,6 @@ class ProductCategory extends Model
     protected $fillable = [
         'image',
         'name',
-        'production',
         'description',
     ];
 }
