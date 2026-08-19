@@ -23,8 +23,9 @@ class StoreProductCategoryRequest extends FormRequest
      */
     public function rules(): array
     {
+        $categoryId = $this->route('id');
         return [
-            'name' => ['required', 'string', 'max:255', Rule::unique('product_categories', 'name')->ignore($this->route('product_category'))],
+            'name' => ['required', 'string', 'max:255', Rule::unique('product_categories', 'name')->ignore($categoryId)],
             'description' => ['required', 'string'],
             'created_at' => ['nullable', 'date'],
             'updated_at' => ['nullable', 'date']
