@@ -11,6 +11,8 @@ Route::prefix('v1')->group(function () {
         Route::get('/me', [AuthController::class, 'me']);
         Route::post('/logout', [AuthController::class, 'logout']);
 
+        // Product Categories
+        Route::get('product-categories/options', [ProductCategoryController::class, 'options']);
         Route::post('/product-categories/{id}/upload-image', [ProductCategoryImageController::class, 'store']);
         Route::apiResource('product-categories', ProductCategoryController::class);
     });

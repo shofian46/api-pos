@@ -23,8 +23,8 @@ class GetProductCategoriesRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'search' => ['nullable|string'],
-            'limit' => ['nullable|string', 'integer', 'min:1', 'max:100'],
+            'search' => ['nullable', 'string'],
+            'limit' => ['nullable', 'integer', 'min:1', 'max:100'],
         ];
     }
 }

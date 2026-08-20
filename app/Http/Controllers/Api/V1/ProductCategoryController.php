@@ -32,6 +32,31 @@ class ProductCategoryController extends Controller
         );
     }
 
+    // public function options(GetProductCategoriesRequest $request)
+    // {
+    //     $categories = ProductCategory::select('id', 'name')
+    //         ->search($request->search)
+    //         ->orderBy('name')
+    //         ->get();
+
+    //     return ApiResponse::success(
+    //         new PaginatedResource($categories, ProductCategoryResource::class),
+    //         'Product categories options.'
+    //     );
+    // }
+    public function options(GetProductCategoriesRequest $request)
+    {
+        $categories = ProductCategory::select('id', 'name')
+            ->search($request->search)
+            ->orderBy('name')
+            ->get();
+
+        return ApiResponse::success(
+            ProductCategoryResource::collection($categories),
+            'Product categories options.'
+        );
+    }
+
     /**
      * Store a newly created resource in storage.
      */
